@@ -1,10 +1,11 @@
 
-import { Input } from './components/Input/Input'
+import { Button, Input } from './components'
 
 function App() {
   return (
     <>
       <Input />
+      <Button />
     </>
   )
 }

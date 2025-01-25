@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import styles from './Input.module.scss';
+import { Icon } from '../Icon';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: boolean;
@@ -14,16 +15,26 @@ export function Input({
 }: InputProps) {
   return (
     <div className={styles.wrapper}>
-      <input
-        className={classNames(
-          styles.input,
-          {
-            [styles.error]: error
-          },
-          className
+      <div className={styles.inputContainer}>
+        <input
+          className={classNames(
+            styles.input,
+            {
+              [styles.error]: error
+            },
+            className
+          )}
+          {...props}
+        />
+        {error && (
+          <Icon 
+            name="alert"
+            width={13}
+            height={13}
+            className={styles.errorIcon}
+          />
         )}
-        {...props}
-      />
+      </div>
       {helperText && (
         <span className={classNames(
           styles.helperText,

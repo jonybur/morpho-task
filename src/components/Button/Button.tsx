@@ -1,0 +1,62 @@
+import React from 'react';
+import styles from './Button.module.scss';
+import classNames from 'classnames';
+import { Icon, IconName } from '../Icon';
+
+type BaseButtonProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'children'> & {
+  /**
+   * Error state
+   */
+  error?: boolean;
+  /**
+   * Progress state
+   */
+  progress?: boolean;
+  /**
+   * Additional className
+   */
+  className?: string;
+}
+
+type TextButtonProps = BaseButtonProps & {
+  /**
+   * Button text content
+   */
+  text: string;
+  icon?: never;
+}
+
+type IconButtonProps = BaseButtonProps & {
+  /**
+   * Icon name
+   */
+  icon: IconName;
+  text?: never;
+}
+
+export type ButtonProps = TextButtonProps | IconButtonProps;
+
+export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ text, icon, error, progress, className, disabled, ...props }, ref) => {
+    return (
+      <button
+        ref={ref}
+        className={classNames(
+          styles.button,
+          {
+            [styles.error]: error,
+            [styles.progress]: progress,
+            [styles.circle]: icon !== undefined
+          },
+          className
+        )}
+        disabled={disabled || progress}
+        {...props}
+      >
+        {icon ? <Icon name={icon} className={styles.icon} /> : text}
+      </button>
+    );
+  }
+);
+
+Button.displayName = 'Button'; 

@@ -49,7 +49,6 @@ export const Focused: Story = {
 export const Error: Story = {
   args: {
     error: true,
-    helperText: 'This field has an error',
     value: 'Invalid input',
   },
 }; 
