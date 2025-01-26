@@ -35,32 +35,32 @@
   
   transition: $transition-default;
   
-  &::placeholder {
-    color: $color-text-placeholder;
-  }
-  
-  &:hover {
-    background: $color-background-hover;
-  }
-  
-  &:focus {
-    outline: none;
-    background: $color-background-pressed;
-    border-color: $color-border-focus;
-  }
-  
-  &.error {
-    padding-right: 32px;
-    background: $color-background-secondary;
-    border: 0.5px solid $color-error-border;
-    color: $color-error-text;
-    
     &::placeholder {
-      color: $color-error-text;
+      color: $color-text-placeholder;
     }
     
-    &:hover, &:focus {
-      border-color: $color-error-border;
+    &:hover {
+      background: $color-background-hover;
+    }
+    
+    &:focus {
+      outline: none;
+      background: $color-background-pressed;
+      border-color: $color-border-focus;
+    }
+    
+    &.error {
+      padding-right: 32px;
+      background: $color-background-secondary;
+      border: 0.5px solid $color-error-border;
+      color: $color-error-text;
+      
+      &::placeholder {
+        color: $color-error-text;
+      }
+      
+      &:hover, &:focus {
+        border-color: $color-error-border;
     }
   }
 
@@ -92,9 +92,6 @@
   top: 50%;
   width: 16px;
   height: 16px;
-  border: 2px solid rgba(67, 76, 83, 0.1);
-  border-top: 2px solid rgba(67, 76, 83, 0.8);
-  border-radius: 50%;
   animation: spin 1s linear infinite;
   pointer-events: none;
 }

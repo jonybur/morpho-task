@@ -38,7 +38,12 @@ export function Input({
           />
         )}
         {isLoading && (
-          <div className={styles.loadingSpinner} />
+          <Icon 
+            name="loading"
+            width={16}
+            height={16}
+            className={styles.loadingSpinner}
+          />
         )}
       </div>
       {helperText && (
