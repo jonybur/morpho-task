@@ -23,5 +23,7 @@ export const Default: Story = {
   args: {
     items: mockItems,
     visible: true,
+    onClose: () => {},
+    onSelect: () => {},
   },
 }; 

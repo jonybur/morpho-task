@@ -14,10 +14,15 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
           <Icon name="morpho" className={styles.morphoIcon} />
           <span className={styles.title}>Morpho Test</span>
         </div>
-        <button className={styles.button}>
-          <span className={styles.buttonText}>Button</span>
-          <Icon name="arrow" className={styles.arrowIcon} />
-        </button>
+        <a 
+          href="https://github.com/jonybur/morpho-task"
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.button}
+        >
+          <span className={styles.buttonText}>Go to Github Repo</span>
+          <Icon name="upRightArrow" className={styles.arrowIcon} />
+        </a>
       </div>
     </nav>
   );

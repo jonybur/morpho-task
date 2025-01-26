@@ -1,0 +1,30 @@
+@use '../../styles/variables.scss' as v;
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+.dropdownContainer {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  gap: 40px;
+
+  &.errorSpacing {
+    top: 75px;
+  }
+}
+
+.errorText {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  font-family: v.$font-family-inter;
+  font-size: 13px;
+  width: 100%;
+  text-align: right;
+  color: v.$color-error-text;
+} 

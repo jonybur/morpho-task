@@ -5,12 +5,14 @@ import { Icon } from '../Icon';
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: boolean;
   helperText?: string;
+  isLoading?: boolean;
 }
 
 export function Input({ 
   error,
   helperText,
   className,
+  isLoading,
   ...props 
 }: InputProps) {
   return (
@@ -20,7 +22,8 @@ export function Input({
           className={classNames(
             styles.input,
             {
-              [styles.error]: error
+              [styles.error]: error,
+              [styles.loading]: isLoading
             },
             className
           )}
@@ -33,6 +36,9 @@ export function Input({
             height={13}
             className={styles.errorIcon}
           />
+        )}
+        {isLoading && (
+          <div className={styles.loadingSpinner} />
         )}
       </div>
       {helperText && (

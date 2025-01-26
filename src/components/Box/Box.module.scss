@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@use '../../styles/variables.scss' as v;
 
 .box {
   box-sizing: border-box;
@@ -15,8 +15,8 @@
   left: calc(50% - 350px/2 - 6.5px);
   top: calc(50% - 160px/2 - 0.5px);
 
-  background: $color-background-light;
-  border: 1px solid $color-border-light;
-  box-shadow: $shadow-dp4;
+  background: v.$color-background-light;
+  border: 1px solid v.$color-border-light;
+  box-shadow: v.$shadow-dp4;
   border-radius: 8px;
 } 

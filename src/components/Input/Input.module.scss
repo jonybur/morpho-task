@@ -63,6 +63,10 @@
       border-color: $color-error-border;
     }
   }
+
+  &.loading {
+    padding-right: 32px;
+  }
 }
 
 .errorIcon {
@@ -70,6 +74,28 @@
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
+  pointer-events: none;
+}
+
+@keyframes spin {
+  from {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateY(-50%) rotate(360deg);
+  }
+}
+
+.loadingSpinner {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(67, 76, 83, 0.1);
+  border-top: 2px solid rgba(67, 76, 83, 0.8);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
   pointer-events: none;
 }
 
