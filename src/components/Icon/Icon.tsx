@@ -5,8 +5,9 @@ import morphoIcon from './assets/morpho_icon.svg';
 import arrowIcon from './assets/arrow_icon.svg';
 import upRightArrowIcon from './assets/up_right_arrow_icon.svg';
 import loadingIcon from './assets/loading_icon.svg';
+import checkIcon from './assets/check.svg';
 
-export type IconName = 'alert' | 'borrow' | 'morpho' | 'arrow' | 'upRightArrow' | 'loading';
+export type IconName = 'alert' | 'borrow' | 'morpho' | 'arrow' | 'upRightArrow' | 'loading' | 'check';
 
 interface IconProps {
   name: IconName;
@@ -22,6 +23,7 @@ const iconMap: Record<IconName, string> = {
   morpho: morphoIcon,
   arrow: arrowIcon,
   upRightArrow: upRightArrowIcon,
+  check: checkIcon,
 };
 
 export const Icon: React.FC<IconProps> = ({ 

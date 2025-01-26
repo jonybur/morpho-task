@@ -6,6 +6,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: boolean;
   helperText?: string;
   isLoading?: boolean;
+  success?: boolean;
 }
 
 export function Input({ 
@@ -13,6 +14,7 @@ export function Input({
   helperText,
   className,
   isLoading,
+  success,
   ...props 
 }: InputProps) {
   return (
@@ -23,7 +25,8 @@ export function Input({
             styles.input,
             {
               [styles.error]: error,
-              [styles.loading]: isLoading
+              [styles.loading]: isLoading,
+              [styles.success]: success
             },
             className
           )}
@@ -43,6 +46,14 @@ export function Input({
             width={16}
             height={16}
             className={styles.loadingSpinner}
+          />
+        )}
+        {success && (
+          <Icon 
+            name="check"
+            width={20}
+            height={20}
+            className={styles.successIcon}
           />
         )}
       </div>

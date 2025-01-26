@@ -51,4 +51,41 @@ export const Error: Story = {
     error: true,
     value: 'Invalid input',
   },
+};
+
+export const Success: Story = {
+  args: {
+    success: true,
+    value: 'Valid input',
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    isLoading: true,
+    value: 'Loading...',
+  },
+};
+
+export const WithHelperText: Story = {
+  args: {
+    helperText: 'This is a helper text',
+    value: 'Input with helper text',
+  },
+};
+
+export const ErrorWithHelperText: Story = {
+  args: {
+    error: true,
+    helperText: 'This field is required',
+    value: 'Invalid input',
+  },
+};
+
+export const SuccessWithHelperText: Story = {
+  args: {
+    success: true,
+    helperText: 'Looks good!',
+    value: 'Valid input',
+  },
 }; 

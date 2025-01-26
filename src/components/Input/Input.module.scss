@@ -69,6 +69,20 @@
       }
     }
 
+    &.success {
+      padding-right: 32px;
+      border: 0.5px solid #39A699;
+      
+      &:hover {
+        border-color: #39A699;
+      }
+
+      &:focus {
+        background: $color-background-pressed;
+        border-color: #39A699;
+      }
+    }
+
   &.loading {
     padding-right: 32px;
   }
@@ -98,6 +112,14 @@
   width: 16px;
   height: 16px;
   animation: spin 1s linear infinite;
+  pointer-events: none;
+}
+
+.successIcon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
   pointer-events: none;
 }
 

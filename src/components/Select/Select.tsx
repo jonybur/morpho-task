@@ -18,6 +18,7 @@ export const Select = ({ value, onChange, onSearch, placeholder, className, isEr
   const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState<DropdownItem[]>([]);
   const [hasSearched, setHasSearched] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   const debouncedSearch = useCallback(
     async (searchTerm: string) => {
@@ -37,6 +38,7 @@ export const Select = ({ value, onChange, onSearch, placeholder, className, isEr
 
     setIsLoading(true);
     setResults([]);
+    setIsSuccess(false);
 
     abortController = new AbortController();
     debouncedSearchWithDelay(value)
@@ -44,6 +46,7 @@ export const Select = ({ value, onChange, onSearch, placeholder, className, isEr
         if (!abortController?.signal.aborted) {
           setResults(newResults);
           setHasSearched(true);
+          setIsSuccess(newResults.length > 0);
         }
       })
       .catch(() => {
@@ -62,12 +65,14 @@ export const Select = ({ value, onChange, onSearch, placeholder, className, isEr
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     onChange(e.target.value);
+    setIsSuccess(false);
   };
 
   const handleSelect = (item: DropdownItem) => {
     onChange(item.name);
     setResults([]);
     setHasSearched(false);
+    setIsSuccess(true);
   };
 
   const shouldShowDropdown = value.length > 0 && !isLoading && hasSearched;
@@ -85,6 +90,7 @@ export const Select = ({ value, onChange, onSearch, placeholder, className, isEr
         }}
         isLoading={isLoading}
         error={!isLoading && isError}
+        success={!isLoading && !isError && isSuccess}
       />
       <div className={`${styles.dropdownContainer} ${!isLoading && isError ? styles.errorSpacing : ''}`}>
         {!isLoading && isError && <span className={styles.errorText}>{errorMessage || 'Error'}</span>}
