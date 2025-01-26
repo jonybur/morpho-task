@@ -59,10 +59,15 @@
         color: $color-error-text;
       }
       
-      &:hover, &:focus {
+      &:hover {
         border-color: $color-error-border;
+      }
+
+      &:focus {
+        background: $color-background-pressed;
+        border-color: $color-error-border;
+      }
     }
-  }
 
   &.loading {
     padding-right: 32px;
