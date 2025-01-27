@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { formatUSD, formatAPY, formatAddress } from "../utils/helpers";
 import steakhouseLogo from "../assets/images/steakhouse.svg";
 import styles from "./Vault.module.scss";
+import { Error } from "./Error";
 
 const VaultHeader = ({ name, owner }: { name: string; owner: string }) => {
   return (
@@ -39,8 +40,9 @@ export const VaultPage = () => {
       try {
         const vault = await getVault(vaultId);
         setVaultData(vault);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to load vault');
+      } catch (err: unknown) {
+        const errorMessage = err instanceof Error ? err.message : 'Failed to load vault';
+        setError(errorMessage);
       } finally {
         setLoading(false);
       }
@@ -53,12 +55,8 @@ export const VaultPage = () => {
     return <Box>Loading...</Box>;
   }
 
-  if (error) {
-    return <Box>Error: {error}</Box>;
-  }
-
-  if (!vaultData) {
-    return <Box>No vault data found</Box>;
+  if (error || !vaultData) {
+    return <Error />;
   }
 
   return (
