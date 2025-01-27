@@ -1,0 +1,13 @@
+.searchContainer {
+  position: absolute;
+  width: 350px;
+  height: 160px;
+  left: calc(50% - 350px/2 - 6.5px);
+  top: calc(50% - 160px/2 - 0.5px);
+}
+
+.searchForm {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+} 

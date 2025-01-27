@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styles from './Navbar.module.scss';
 import { Icon } from '../Icon';
 
@@ -10,10 +11,10 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
   return (
     <nav className={`${styles.navbar} ${className || ''}`}>
       <div className={styles.content}>
-        <div className={styles.leftSection}>
+        <Link to="/" className={styles.leftSection}>
           <Icon name="morpho" className={styles.morphoIcon} />
           <span className={styles.title}>Morpho Test</span>
-        </div>
+        </Link>
         <a 
           href="https://github.com/jonybur/morpho-task"
           target="_blank"

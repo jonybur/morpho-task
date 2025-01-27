@@ -5,5 +5,6 @@ export * from './Input';
 export * from './Navbar';
 export * from './Dropdown';
 export * from './Select';
+export * from './Field';
 
-export type { IconName } from './Icon';
+export type { IconName } from './Icon'; 

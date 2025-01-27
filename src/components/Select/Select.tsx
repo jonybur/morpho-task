@@ -8,13 +8,14 @@ export interface SelectProps {
   value: string;
   onChange: (value: string) => void;
   onSearch: (searchTerm: string, signal?: AbortSignal) => Promise<DropdownItem[]>;
+  onSelect?: (item: DropdownItem) => void;
   placeholder?: string;
   className?: string;
   isError?: boolean;
   errorMessage?: string;
 }
 
-export const Select = ({ value, onChange, onSearch, placeholder, className, isError, errorMessage }: SelectProps) => {
+export const Select = ({ value, onChange, onSearch, onSelect, placeholder, className, isError, errorMessage }: SelectProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState<DropdownItem[]>([]);
   const [hasSearched, setHasSearched] = useState(false);
@@ -73,6 +74,7 @@ export const Select = ({ value, onChange, onSearch, placeholder, className, isEr
     setResults([]);
     setHasSearched(false);
     setIsSuccess(true);
+    onSelect?.(item);
   };
 
   const shouldShowDropdown = value.length > 0 && !isLoading && hasSearched;
