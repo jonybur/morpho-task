@@ -1,6 +1,6 @@
-import { FC, useEffect, useRef, useState, useCallback } from "react";
-import styles from "./Dropdown.module.scss";
-import { Icon } from "../Icon";
+import { FC, useCallback, useEffect, useRef, useState } from 'react';
+import { Icon } from '../Icon';
+import styles from './Dropdown.module.scss';
 
 export interface DropdownItem {
   id: string;
@@ -14,21 +14,13 @@ interface DropdownProps {
   onSelect: (item: DropdownItem) => void;
 }
 
-export const Dropdown: FC<DropdownProps> = ({
-  items,
-  visible,
-  onClose,
-  onSelect,
-}) => {
+export const Dropdown: FC<DropdownProps> = ({ items, visible, onClose, onSelect }) => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleClickOutside = useCallback(
     (event: MouseEvent) => {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
-      ) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         onClose();
       }
     },
@@ -40,28 +32,28 @@ export const Dropdown: FC<DropdownProps> = ({
       if (!visible || items.length === 0) return;
 
       switch (event.key) {
-        case "ArrowDown":
+        case 'ArrowDown':
           event.preventDefault();
           setSelectedIndex((prev) => {
             if (prev === null) return 0;
             return (prev + 1) % items.length;
           });
           break;
-        case "ArrowUp":
+        case 'ArrowUp':
           event.preventDefault();
           setSelectedIndex((prev) => {
             if (prev === null) return items.length - 1;
             return (prev - 1 + items.length) % items.length;
           });
           break;
-        case "Enter":
+        case 'Enter':
           event.preventDefault();
           if (selectedIndex !== null) {
             onSelect(items[selectedIndex]);
             onClose();
           }
           break;
-        case "Escape":
+        case 'Escape':
           event.preventDefault();
           onClose();
           break;
@@ -73,13 +65,13 @@ export const Dropdown: FC<DropdownProps> = ({
   useEffect(() => {
     if (visible) {
       setSelectedIndex(null);
-      document.addEventListener("mousedown", handleClickOutside);
-      document.addEventListener("keydown", handleKeyDown);
+      document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('keydown', handleKeyDown);
     }
 
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-      document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('keydown', handleKeyDown);
     };
   }, [visible, items, handleClickOutside, handleKeyDown]);
 
@@ -94,9 +86,7 @@ export const Dropdown: FC<DropdownProps> = ({
           items.map((item, index) => (
             <div
               key={item.id}
-              className={`${styles.item} ${
-                index === selectedIndex ? styles.selected : ""
-              }`}
+              className={`${styles.item} ${index === selectedIndex ? styles.selected : ''}`}
               onClick={() => {
                 onSelect(item);
                 onClose();

@@ -85,4 +85,4 @@ export const Focus: Story = {
   parameters: {
     pseudo: { focus: true },
   },
-}; 
+};

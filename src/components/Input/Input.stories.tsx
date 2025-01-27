@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Input } from './Input';
 import { userEvent, within } from '@storybook/testing-library';
+import { Input } from './Input';
 
 const meta = {
   title: 'Components/Input',
@@ -88,4 +88,4 @@ export const SuccessWithHelperText: Story = {
     helperText: 'Looks good!',
     value: 'Valid input',
   },
-}; 
+};

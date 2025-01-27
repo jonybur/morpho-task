@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import styles from './Input.module.scss';
 import { Icon } from '../Icon';
+import styles from './Input.module.scss';
 
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: boolean;
@@ -9,14 +9,7 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   success?: boolean;
 }
 
-export function Input({ 
-  error,
-  helperText,
-  className,
-  isLoading,
-  success,
-  ...props 
-}: InputProps) {
+export function Input({ error, helperText, className, isLoading, success, ...props }: InputProps) {
   return (
     <div className={styles.wrapper}>
       <div className={styles.inputContainer}>
@@ -26,44 +19,24 @@ export function Input({
             {
               [styles.error]: error,
               [styles.loading]: isLoading,
-              [styles.success]: success
+              [styles.success]: success,
             },
             className
           )}
           {...props}
         />
-        {error && (
-          <Icon 
-            name="alert"
-            width={13}
-            height={13}
-            className={styles.errorIcon}
-          />
-        )}
+        {error && <Icon name="alert" width={13} height={13} className={styles.errorIcon} />}
         {isLoading && (
-          <Icon 
-            name="loading"
-            width={16}
-            height={16}
-            className={styles.loadingSpinner}
-          />
+          <Icon name="loading" width={16} height={16} className={styles.loadingSpinner} />
         )}
-        {success && (
-          <Icon 
-            name="check"
-            width={20}
-            height={20}
-            className={styles.successIcon}
-          />
-        )}
+        {success && <Icon name="check" width={20} height={20} className={styles.successIcon} />}
       </div>
       {helperText && (
-        <span className={classNames(
-          styles.helperText,
-          {
-            [styles.helperTextError]: error
-          }
-        )}>
+        <span
+          className={classNames(styles.helperText, {
+            [styles.helperTextError]: error,
+          })}
+        >
           {helperText}
         </span>
       )}

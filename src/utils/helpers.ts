@@ -1,6 +1,6 @@
 export const isValidEthereumAddress = (address: string): boolean => {
   return /^0x[a-fA-F0-9]{40}$/.test(address);
-}; 
+};
 
 export const formatUSD = (value: string) => {
   const num = parseFloat(value);
@@ -17,4 +17,4 @@ export const formatAPY = (value: string) => {
 export const formatAddress = (address: string) => {
   if (address.length <= 10) return address;
   return `${address.slice(0, 5)}...${address.slice(-6)}`;
-}; 
+};

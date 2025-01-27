@@ -32,4 +32,4 @@ export const ShortValue: Story = {
     title: 'APY',
     value: '10.22%',
   },
-}; 
+};

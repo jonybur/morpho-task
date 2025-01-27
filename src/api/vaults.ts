@@ -1,5 +1,5 @@
-import { DropdownItem } from "../components/Dropdown";
-import { isValidEthereumAddress } from "../utils/helpers";
+import { DropdownItem } from '../components/Dropdown';
+import { isValidEthereumAddress } from '../utils/helpers';
 
 export type Vault = {
   id: string;
@@ -18,26 +18,26 @@ export const searchVaults = async (
   const delay = (ms: number) =>
     new Promise((resolve, reject) => {
       const timeout = setTimeout(resolve, ms);
-      signal?.addEventListener("abort", () => {
+      signal?.addEventListener('abort', () => {
         clearTimeout(timeout);
-        reject(new Error("Aborted"));
+        reject(new Error('Aborted'));
       });
     });
 
   await delay(300);
 
-  if (searchTerm.startsWith("0x")) {
+  if (searchTerm.startsWith('0x')) {
     if (!isValidEthereumAddress(searchTerm)) {
-      throw new Error("This is not a valid address");
+      throw new Error('This is not a valid address');
     }
   }
 
-  if (searchTerm.toLowerCase() === "steakhouse") {
+  if (searchTerm.toLowerCase() === 'steakhouse') {
     return [
-      { id: "1", name: "Vault Name One" },
-      { id: "2", name: "Vault Name Two" },
-      { id: "3", name: "Vault Name Three" },
-      { id: "4", name: "Vault Name Four" },
+      { id: '1', name: 'Vault Name One' },
+      { id: '2', name: 'Vault Name Two' },
+      { id: '3', name: 'Vault Name Three' },
+      { id: '4', name: 'Vault Name Four' },
     ];
   }
 
@@ -45,7 +45,7 @@ export const searchVaults = async (
     return [];
   }
 
-  throw new Error("No vault found for this name");
+  throw new Error('No vault found for this name');
 };
 
 export const getVault = async (vaultId: string): Promise<Vault> => {
@@ -53,47 +53,47 @@ export const getVault = async (vaultId: string): Promise<Vault> => {
 
   const mockVaults = [
     {
-      id: "1",
-      name: "Vault Name One",
-      token: "Steakhouse USDC",
-      company: "Steakhouse Financial",
-      totalSupply: "52250000",
-      instantNetApy: "10.22%",
-      owner: "0x12300000000000000000000000000000000abcdef",
+      id: '1',
+      name: 'Vault Name One',
+      token: 'Steakhouse USDC',
+      company: 'Steakhouse Financial',
+      totalSupply: '52250000',
+      instantNetApy: '10.22%',
+      owner: '0x12300000000000000000000000000000000abcdef',
     },
     {
-      id: "2",
-      name: "Vault Name Two",
-      token: "Steakhouse USDC",
-      company: "Steakhouse Financial",
-      totalSupply: "52250000",
-      instantNetApy: "10.22%",
-      owner: "0x12300000000000000000000000000000000abcdef",
+      id: '2',
+      name: 'Vault Name Two',
+      token: 'Steakhouse USDC',
+      company: 'Steakhouse Financial',
+      totalSupply: '52250000',
+      instantNetApy: '10.22%',
+      owner: '0x12300000000000000000000000000000000abcdef',
     },
     {
-      id: "3",
-      name: "Vault Name Three",
-      token: "Steakhouse USDC",
-      company: "Steakhouse Financial",
-      totalSupply: "52250000",
-      instantNetApy: "10.22%",
-      owner: "0x12300000000000000000000000000000000abcdef",
+      id: '3',
+      name: 'Vault Name Three',
+      token: 'Steakhouse USDC',
+      company: 'Steakhouse Financial',
+      totalSupply: '52250000',
+      instantNetApy: '10.22%',
+      owner: '0x12300000000000000000000000000000000abcdef',
     },
     {
-      id: "4",
-      name: "Vault Name Four",
-      token: "Steakhouse USDC",
-      company: "Steakhouse Financial",
-      totalSupply: "52250000",
-      instantNetApy: "10.22%",
-      owner: "0x12300000000000000000000000000000000abcdef",
+      id: '4',
+      name: 'Vault Name Four',
+      token: 'Steakhouse USDC',
+      company: 'Steakhouse Financial',
+      totalSupply: '52250000',
+      instantNetApy: '10.22%',
+      owner: '0x12300000000000000000000000000000000abcdef',
     },
   ];
 
   const vault = mockVaults.find((v) => v.id === vaultId);
 
   if (!vault) {
-    throw new Error("Vault not found");
+    throw new Error('Vault not found');
   }
 
   return vault;

@@ -26,4 +26,4 @@ export const Default: Story = {
     onClose: () => {},
     onSelect: () => {},
   },
-}; 
+};

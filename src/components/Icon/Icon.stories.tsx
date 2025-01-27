@@ -89,4 +89,4 @@ export const AllIcons: Story = {
   parameters: {
     controls: { hideNoControlsWarning: true },
   },
-}; 
+};

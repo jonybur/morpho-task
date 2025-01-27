@@ -7,7 +7,7 @@ $color-border-focus: rgba(87, 146, 255, 0.65);
 $color-error-border: rgba(199, 62, 89, 0.65);
 $color-error-text: rgba(199, 62, 89, 0.95);
 $color-error-icon: rgba(199, 62, 89, 0.9);
-$color-white: #FFFFFF;
+$color-white: #ffffff;
 $color-primary: rgba(41, 115, 255, 0.85);
 $color-primary-hover: rgba(36, 112, 255, 0.92);
 $color-primary-focus-border: rgba(36, 112, 255, 0.4);
@@ -15,11 +15,22 @@ $color-inactive: rgba(36, 112, 255, 0.4);
 $color-white-inactive: rgba(255, 255, 255, 0.5);
 $color-progress: rgba(36, 112, 255, 0.75);
 $color-border-light: rgba(67, 76, 83, 0.15);
-$color-background-light: #FAFCFF;
+$color-background-light: #fafcff;
 
 // Typography
 $font-family-inter: 'Inter', sans-serif;
-$font-family-fk: 'FK Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+$font-family-fk:
+  'FK Grotesk',
+  -apple-system,
+  BlinkMacSystemFont,
+  'Segoe UI',
+  Roboto,
+  Oxygen,
+  Ubuntu,
+  Cantarell,
+  'Open Sans',
+  'Helvetica Neue',
+  sans-serif;
 $font-size-input: 13px;
 $font-size-helper: 12px;
 $font-size-button: 15px;
@@ -50,4 +61,4 @@ $border-width-focus: 2px;
 $transition-default: all 0.2s ease-in-out;
 
 // Shadows
-$shadow-dp4: 0px 3px 12px rgba(0, 0, 0, 0.09); 
+$shadow-dp4: 0px 3px 12px rgba(0, 0, 0, 0.09);

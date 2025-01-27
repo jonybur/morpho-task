@@ -33,4 +33,4 @@ export function debounce<T extends string, R>(
       }, wait);
     });
   };
-} 
+}

@@ -1,7 +1,7 @@
-import { useCallback, useState, useEffect, useMemo } from 'react';
-import { Input } from '../Input';
-import { Dropdown, DropdownItem } from '../Dropdown';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { debounce } from '../../utils/debounce';
+import { Dropdown, DropdownItem } from '../Dropdown';
+import { Input } from '../Input';
 import styles from './Select.module.scss';
 
 export interface SelectProps {
@@ -15,7 +15,16 @@ export interface SelectProps {
   errorMessage?: string;
 }
 
-export const Select = ({ value, onChange, onSearch, onSelect, placeholder, className, isError, errorMessage }: SelectProps) => {
+export const Select = ({
+  value,
+  onChange,
+  onSearch,
+  onSelect,
+  placeholder,
+  className,
+  isError,
+  errorMessage,
+}: SelectProps) => {
   const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState<DropdownItem[]>([]);
   const [hasSearched, setHasSearched] = useState(false);
@@ -29,10 +38,7 @@ export const Select = ({ value, onChange, onSearch, onSelect, placeholder, class
     [onSearch]
   );
 
-  const debouncedSearchWithDelay = useMemo(
-    () => debounce(debouncedSearch, 300),
-    [debouncedSearch]
-  );
+  const debouncedSearchWithDelay = useMemo(() => debounce(debouncedSearch, 300), [debouncedSearch]);
 
   useEffect(() => {
     let abortController: AbortController | null = null;
@@ -81,7 +87,7 @@ export const Select = ({ value, onChange, onSearch, onSelect, placeholder, class
 
   return (
     <div className={`${styles.container} ${className || ''}`}>
-      <Input 
+      <Input
         placeholder={placeholder}
         value={value}
         onChange={handleInputChange}
@@ -94,9 +100,13 @@ export const Select = ({ value, onChange, onSearch, onSelect, placeholder, class
         error={!isLoading && isError}
         success={!isLoading && !isError && isSuccess}
       />
-      <div className={`${styles.dropdownContainer} ${!isLoading && isError ? styles.errorSpacing : ''}`}>
-        {!isLoading && isError && <span className={styles.errorText}>{errorMessage || 'Error'}</span>}
-        <Dropdown 
+      <div
+        className={`${styles.dropdownContainer} ${!isLoading && isError ? styles.errorSpacing : ''}`}
+      >
+        {!isLoading && isError && (
+          <span className={styles.errorText}>{errorMessage || 'Error'}</span>
+        )}
+        <Dropdown
           items={results}
           visible={shouldShowDropdown}
           onClose={() => {
@@ -108,4 +118,4 @@ export const Select = ({ value, onChange, onSearch, onSelect, placeholder, class
       </div>
     </div>
   );
-}; 
+};

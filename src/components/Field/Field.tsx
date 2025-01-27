@@ -15,4 +15,4 @@ export const Field = ({ title, value, className }: FieldProps) => {
       </div>
     </div>
   );
-}; 
+};

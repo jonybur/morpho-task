@@ -1,1 +1,1 @@
-export { VaultPage } from "./Vault";
+export { VaultPage } from './Vault';

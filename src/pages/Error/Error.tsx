@@ -1,6 +1,6 @@
-import React from "react";
-import styles from "./Error.module.scss";
-import { Icon, Box, Button } from "../../components";
+import React from 'react';
+import { Box, Button, Icon } from '../../components';
+import styles from './Error.module.scss';
 
 export const ErrorPage: React.FC = () => {
   return (
@@ -11,9 +11,7 @@ export const ErrorPage: React.FC = () => {
             <Icon name="info" />
             <span className={styles.title}>Oops!</span>
           </div>
-          <span className={styles.description}>
-            Something went wrong, please try again.
-          </span>
+          <span className={styles.description}>Something went wrong, please try again.</span>
         </div>
         <Button text="Try again" size="small" />
       </div>

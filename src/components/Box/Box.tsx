@@ -1,6 +1,6 @@
-import { ReactNode } from "react";
-import classNames from "classnames";
-import styles from "./Box.module.scss";
+import { ReactNode } from 'react';
+import classNames from 'classnames';
+import styles from './Box.module.scss';
 
 export interface BoxProps {
   children: ReactNode;

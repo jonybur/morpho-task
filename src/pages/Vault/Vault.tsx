@@ -1,20 +1,13 @@
-import { useParams } from "react-router-dom";
-import { Box, Button, Field } from "../../components";
-import { getVault } from "../../api/vaults";
-import { Vault as VaultType } from "../../api/vaults";
-import { useEffect, useState } from "react";
-import { formatUSD, formatAPY, formatAddress } from "../../utils/helpers";
-import steakhouseLogo from "../../assets/images/steakhouse.svg";
-import styles from "./Vault.module.scss";
-import { ErrorPage } from "../Error";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { getVault, Vault as VaultType } from '../../api/vaults';
+import steakhouseLogo from '../../assets/images/steakhouse.svg';
+import { Box, Button, Field } from '../../components';
+import { formatAddress, formatAPY, formatUSD } from '../../utils/helpers';
+import { ErrorPage } from '../Error';
+import styles from './Vault.module.scss';
 
-const VaultHeader = ({
-  token,
-  company,
-}: {
-  token: string;
-  company: string;
-}) => {
+const VaultHeader = ({ token, company }: { token: string; company: string }) => {
   return (
     <div className={styles.header}>
       <div className={styles.avatar}>
@@ -42,7 +35,7 @@ export const VaultPage = () => {
         const vault = await getVault(vaultId);
         setVaultData(vault);
       } catch {
-        setError("Failed to load vault");
+        setError('Failed to load vault');
       } finally {
         setLoading(false);
       }
@@ -64,17 +57,11 @@ export const VaultPage = () => {
       <div className={styles.content}>
         <VaultHeader token={vaultData.token} company={vaultData.company} />
         <div className={styles.divider} />
-        <Field
-          title="Total Supply (USD)"
-          value={formatUSD(vaultData.totalSupply)}
-        />
-        <Field
-          title="Instant Net APY"
-          value={formatAPY(vaultData.instantNetApy)}
-        />
+        <Field title="Total Supply (USD)" value={formatUSD(vaultData.totalSupply)} />
+        <Field title="Instant Net APY" value={formatAPY(vaultData.instantNetApy)} />
         <Field title="Vault Owner" value={formatAddress(vaultData.owner)} />
       </div>
-      <Button icon={"borrow"} />
+      <Button icon={'borrow'} />
     </Box>
   );
 };

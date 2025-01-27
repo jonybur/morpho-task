@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './Button.module.scss';
 import classNames from 'classnames';
 import { Icon, IconName } from '../Icon';
+import styles from './Button.module.scss';
 
 type ButtonSize = 'normal' | 'small';
 
@@ -23,7 +23,7 @@ type BaseButtonProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'chil
    * @default 'normal'
    */
   size?: ButtonSize;
-}
+};
 
 type TextButtonProps = BaseButtonProps & {
   /**
@@ -31,7 +31,7 @@ type TextButtonProps = BaseButtonProps & {
    */
   text: string;
   icon?: never;
-}
+};
 
 type IconButtonProps = BaseButtonProps & {
   /**
@@ -39,7 +39,7 @@ type IconButtonProps = BaseButtonProps & {
    */
   icon: IconName;
   text?: never;
-}
+};
 
 export type ButtonProps = TextButtonProps | IconButtonProps;
 
@@ -54,7 +54,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             [styles.error]: error,
             [styles.progress]: progress,
             [styles.circle]: icon !== undefined,
-            [styles.small]: size === 'small'
+            [styles.small]: size === 'small',
           },
           className
         )}
@@ -67,4 +67,4 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 
-Button.displayName = 'Button'; 
+Button.displayName = 'Button';

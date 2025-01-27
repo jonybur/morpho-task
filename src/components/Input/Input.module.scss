@@ -18,70 +18,70 @@
   align-items: center;
   padding: $padding-input;
   gap: $gap-input;
-  
+
   width: 100%;
   height: 36px;
   box-sizing: border-box;
-  
+
   background: $color-background-secondary;
   border-radius: $border-radius;
   border: 1px solid transparent;
-  
+
   font-family: $font-family-inter;
   font-style: normal;
   font-weight: 400;
   font-size: $font-size-input;
   line-height: $line-height-input;
-  
+
   transition: $transition-default;
-  
+
+  &::placeholder {
+    color: $color-text-placeholder;
+  }
+
+  &:hover {
+    background: $color-background-hover;
+  }
+
+  &:focus {
+    outline: none;
+    background: $color-background-pressed;
+    border-color: $color-border-focus;
+  }
+
+  &.error {
+    padding-right: 32px;
+    background: $color-background-secondary;
+    border: 0.5px solid $color-error-border;
+    color: $color-error-text;
+
     &::placeholder {
-      color: $color-text-placeholder;
-    }
-    
-    &:hover {
-      background: $color-background-hover;
-    }
-    
-    &:focus {
-      outline: none;
-      background: $color-background-pressed;
-      border-color: $color-border-focus;
-    }
-    
-    &.error {
-      padding-right: 32px;
-      background: $color-background-secondary;
-      border: 0.5px solid $color-error-border;
       color: $color-error-text;
-      
-      &::placeholder {
-        color: $color-error-text;
-      }
-      
-      &:hover {
-        border-color: $color-error-border;
-      }
-
-      &:focus {
-        background: $color-background-pressed;
-        border-color: $color-error-border;
-      }
     }
 
-    &.success {
-      padding-right: 32px;
-      border: 0.5px solid #39A699;
-      
-      &:hover {
-        border-color: #39A699;
-      }
-
-      &:focus {
-        background: $color-background-pressed;
-        border-color: #39A699;
-      }
+    &:hover {
+      border-color: $color-error-border;
     }
+
+    &:focus {
+      background: $color-background-pressed;
+      border-color: $color-error-border;
+    }
+  }
+
+  &.success {
+    padding-right: 32px;
+    border: 0.5px solid #39a699;
+
+    &:hover {
+      border-color: #39a699;
+    }
+
+    &:focus {
+      background: $color-background-pressed;
+      border-color: #39a699;
+    }
+  }
 
   &.loading {
     padding-right: 32px;
@@ -132,4 +132,4 @@
 
 .helperTextError {
   color: $color-error-text;
-} 
+}

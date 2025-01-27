@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import styles from './Navbar.module.scss';
 import { Icon } from '../Icon';
+import styles from './Navbar.module.scss';
 
 export interface NavbarProps {
   className?: string;
@@ -15,7 +15,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
           <Icon name="morpho" className={styles.morphoIcon} />
           <span className={styles.title}>Morpho Test</span>
         </Link>
-        <a 
+        <a
           href="https://github.com/jonybur/morpho-task"
           target="_blank"
           rel="noopener noreferrer"
@@ -27,4 +27,4 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
       </div>
     </nav>
   );
-}; 
+};
