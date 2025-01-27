@@ -3,6 +3,8 @@ import styles from './Button.module.scss';
 import classNames from 'classnames';
 import { Icon, IconName } from '../Icon';
 
+type ButtonSize = 'normal' | 'small';
+
 type BaseButtonProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'children'> & {
   /**
    * Error state
@@ -16,6 +18,11 @@ type BaseButtonProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'chil
    * Additional className
    */
   className?: string;
+  /**
+   * Button size variant
+   * @default 'normal'
+   */
+  size?: ButtonSize;
 }
 
 type TextButtonProps = BaseButtonProps & {
@@ -37,7 +44,7 @@ type IconButtonProps = BaseButtonProps & {
 export type ButtonProps = TextButtonProps | IconButtonProps;
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ text, icon, error, progress, className, disabled, ...props }, ref) => {
+  ({ text, icon, error, progress, className, disabled, size = 'normal', ...props }, ref) => {
     return (
       <button
         ref={ref}
@@ -46,7 +53,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           {
             [styles.error]: error,
             [styles.progress]: progress,
-            [styles.circle]: icon !== undefined
+            [styles.circle]: icon !== undefined,
+            [styles.small]: size === 'small'
           },
           className
         )}

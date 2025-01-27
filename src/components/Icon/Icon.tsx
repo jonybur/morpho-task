@@ -6,8 +6,9 @@ import arrowIcon from './assets/arrow_icon.svg';
 import upRightArrowIcon from './assets/up_right_arrow_icon.svg';
 import loadingIcon from './assets/loading_icon.svg';
 import checkIcon from './assets/check.svg';
+import infoIcon from './assets/info.svg';
 
-export type IconName = 'alert' | 'borrow' | 'morpho' | 'arrow' | 'upRightArrow' | 'loading' | 'check';
+export type IconName = 'alert' | 'borrow' | 'morpho' | 'arrow' | 'upRightArrow' | 'loading' | 'check' | 'info';
 
 interface IconProps {
   name: IconName;
@@ -24,6 +25,7 @@ const iconMap: Record<IconName, string> = {
   arrow: arrowIcon,
   upRightArrow: upRightArrowIcon,
   check: checkIcon,
+  info: infoIcon,
 };
 
 export const Icon: React.FC<IconProps> = ({ 
