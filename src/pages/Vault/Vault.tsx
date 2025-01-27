@@ -1,11 +1,12 @@
 import { useParams } from "react-router-dom";
-import { Box, Button, Field } from "../components";
-import { getVault } from "../api/vaults";
+import { Box, Button, Field } from "../../components";
+import { getVault } from "../../api/vaults";
+import { Vault as VaultType } from "../../api/vaults";
 import { useEffect, useState } from "react";
-import { formatUSD, formatAPY, formatAddress } from "../utils/helpers";
-import steakhouseLogo from "../assets/images/steakhouse.svg";
+import { formatUSD, formatAPY, formatAddress } from "../../utils/helpers";
+import steakhouseLogo from "../../assets/images/steakhouse.svg";
 import styles from "./Vault.module.scss";
-import { Error } from "./Error";
+import { ErrorPage } from "../Error";
 
 const VaultHeader = ({
   token,
@@ -29,15 +30,7 @@ const VaultHeader = ({
 
 export const VaultPage = () => {
   const { vaultId } = useParams();
-  const [vaultData, setVaultData] = useState<{
-    id: string;
-    name: string;
-    token: string;
-    company: string;
-    totalSupply: string;
-    instantNetApy: string;
-    owner: string;
-  } | null>(null);
+  const [vaultData, setVaultData] = useState<VaultType | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
 
@@ -63,7 +56,7 @@ export const VaultPage = () => {
   }
 
   if (error || !vaultData) {
-    return <Error />;
+    return <ErrorPage />;
   }
 
   return (

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Box, Select } from "../components";
-import { DropdownItem } from "../components/Dropdown";
-import { searchVaults } from "../api/vaults";
+import { Box, Select } from "../../components";
+import { DropdownItem } from "../../components/Dropdown";
+import { searchVaults } from "../../api/vaults";
 import styles from "./Search.module.scss";
 
 export const SearchPage = () => {

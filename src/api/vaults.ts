@@ -1,6 +1,16 @@
 import { DropdownItem } from "../components/Dropdown";
 import { isValidEthereumAddress } from "../utils/helpers";
 
+export type Vault = {
+  id: string;
+  name: string;
+  token: string;
+  company: string;
+  totalSupply: string;
+  instantNetApy: string;
+  owner: string;
+};
+
 export const searchVaults = async (
   searchTerm: string,
   signal?: AbortSignal
@@ -38,15 +48,7 @@ export const searchVaults = async (
   throw new Error("No vault found for this name");
 };
 
-export const getVault = async (
-  vaultId: string
-): Promise<{
-  id: string;
-  name: string;
-  totalSupply: string;
-  instantNetApy: string;
-  owner: string;
-}> => {
+export const getVault = async (vaultId: string): Promise<Vault> => {
   await new Promise((resolve) => setTimeout(resolve, 300));
 
   const mockVaults = [

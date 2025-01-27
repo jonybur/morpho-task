@@ -1,3 +1,4 @@
-export { VaultPage } from './Vault';
-export { NotFoundPage } from './NotFound';
-export { SearchPage } from './Search';
+export { ErrorPage } from "./Error";
+export { NotFoundPage } from "./NotFound";
+export { SearchPage } from "./Search";
+export { VaultPage } from "./Vault";

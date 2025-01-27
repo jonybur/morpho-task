@@ -1,8 +1,8 @@
 import React from "react";
 import styles from "./Error.module.scss";
-import { Icon, Box, Button } from "../components";
+import { Icon, Box, Button } from "../../components";
 
-export const Error: React.FC = () => {
+export const ErrorPage: React.FC = () => {
   return (
     <Box className={styles.box} rounded>
       <div className={styles.container}>
