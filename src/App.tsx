@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Navbar } from './components';
-import { NotFoundPage, SearchPage, VaultPage } from './pages';
+import { NotFoundPage, SearchPage, VaultPage } from './pages/routes';
 
 function App() {
   return (
