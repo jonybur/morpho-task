@@ -7,15 +7,21 @@ import steakhouseLogo from "../assets/images/steakhouse.svg";
 import styles from "./Vault.module.scss";
 import { Error } from "./Error";
 
-const VaultHeader = ({ name, owner }: { name: string; owner: string }) => {
+const VaultHeader = ({
+  token,
+  company,
+}: {
+  token: string;
+  company: string;
+}) => {
   return (
     <div className={styles.header}>
       <div className={styles.avatar}>
         <img src={steakhouseLogo} alt="Steakhouse logo" />
       </div>
       <div className={styles.info}>
-        <div className={styles.title}>{name}</div>
-        <div className={styles.subtitle}>{formatAddress(owner)}</div>
+        <div className={styles.title}>{token}</div>
+        <div className={styles.subtitle}>{company}</div>
       </div>
     </div>
   );
@@ -26,6 +32,8 @@ export const VaultPage = () => {
   const [vaultData, setVaultData] = useState<{
     id: string;
     name: string;
+    token: string;
+    company: string;
     totalSupply: string;
     instantNetApy: string;
     owner: string;
@@ -36,13 +44,12 @@ export const VaultPage = () => {
   useEffect(() => {
     const fetchVault = async () => {
       if (!vaultId) return;
-      
+
       try {
         const vault = await getVault(vaultId);
         setVaultData(vault);
-      } catch (err: unknown) {
-        const errorMessage = err instanceof Error ? err.message : 'Failed to load vault';
-        setError(errorMessage);
+      } catch {
+        setError("Failed to load vault");
       } finally {
         setLoading(false);
       }
@@ -60,22 +67,21 @@ export const VaultPage = () => {
   }
 
   return (
-    <Box className={styles.container}>
-      <VaultHeader name={vaultData.name} owner={vaultData.owner} />
-      <div className={styles.divider} />
-      <Field 
-        title="Total Supply (USD)" 
-        value={formatUSD(vaultData.totalSupply)} 
-      />
-      <Field 
-        title="Instant Net APY" 
-        value={formatAPY(vaultData.instantNetApy)} 
-      />
-      <Field 
-        title="Vault Owner" 
-        value={formatAddress(vaultData.owner)} 
-      />
-      <Button icon={'borrow'} />
+    <Box className={styles.container} rounded>
+      <div className={styles.content}>
+        <VaultHeader token={vaultData.token} company={vaultData.company} />
+        <div className={styles.divider} />
+        <Field
+          title="Total Supply (USD)"
+          value={formatUSD(vaultData.totalSupply)}
+        />
+        <Field
+          title="Instant Net APY"
+          value={formatAPY(vaultData.instantNetApy)}
+        />
+        <Field title="Vault Owner" value={formatAddress(vaultData.owner)} />
+      </div>
+      <Button icon={"borrow"} />
     </Box>
   );
 };

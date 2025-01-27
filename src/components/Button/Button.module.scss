@@ -7,16 +7,16 @@
   align-items: center;
   padding: $padding-button;
   gap: $gap-button;
-  
+
   width: 100%;
   height: $height-button;
   box-sizing: border-box;
-  
+
   background: $color-primary;
   border-radius: $border-radius-button;
   border: $border-width-focus solid transparent;
   cursor: pointer;
-  
+
   font-family: $font-family-fk;
   font-style: normal;
   font-weight: 500;
@@ -24,47 +24,48 @@
   line-height: $line-height-button;
   text-align: center;
   color: $color-white;
-  
+
   transition: $transition-default;
-  
+
   &:hover {
     background: $color-primary-hover;
   }
-  
+
   &:focus {
     outline: none;
     border-color: $color-primary-focus-border;
   }
-  
-  &:disabled, &.error {
+
+  &:disabled,
+  &.error {
     background: $color-inactive;
     color: $color-white-inactive;
     cursor: not-allowed;
-    
+
     &:hover {
       background: $color-inactive;
     }
-    
+
     &:focus {
       border-color: transparent;
     }
   }
-  
+
   &.progress {
     background: $color-progress;
     color: $color-white-inactive;
     gap: $gap-button-progress;
     cursor: not-allowed;
-    
+
     &:hover {
       background: $color-progress;
     }
-    
+
     &:focus {
       border-color: transparent;
     }
   }
-  
+
   &.circle {
     width: $width-button-circle;
     padding: $padding-button-circle;
@@ -78,6 +79,7 @@
     font-size: 12px;
     line-height: 160%;
     border-radius: 100px;
+    font-weight: 400;
   }
 }
 
@@ -85,4 +87,4 @@
   width: $size-button-icon;
   height: $size-button-icon;
   object-fit: contain;
-} 
+}

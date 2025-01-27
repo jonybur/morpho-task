@@ -12,4 +12,10 @@
   border: 1px solid v.$color-border-light;
   box-shadow: v.$shadow-dp4;
   border-radius: 8px;
-} 
+}
+
+.rounded {
+  border-radius: 20px;
+  box-shadow: none;
+  border: none;
+}
