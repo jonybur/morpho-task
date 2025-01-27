@@ -13,7 +13,10 @@
   border: 0.5px solid rgba(67, 76, 83, 0.15);
   box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.09);
   border-radius: 20px;
-  margin-top: 4px;
+
+  &:has(.noResults) {
+    height: 53px;
+  }
 }
 
 .content {
@@ -23,10 +26,14 @@
   padding: 0px;
   width: 100%;
   overflow-y: auto;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+
+  /* IE and Edge */
   &::-webkit-scrollbar {
-    display: none; /* Chrome, Safari and Opera */
+    display: none;
+    /* Chrome, Safari and Opera */
   }
 }
 
@@ -50,14 +57,16 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 4px 8px;
+  padding: 0px 8px;
+  padding-left: 10px;
   gap: 24px;
   width: calc(100% - 16px);
   height: 29px;
   border-radius: 8px;
   cursor: pointer;
 
-  &:hover, &.selected {
+  &:hover,
+  &.selected {
     background: rgba(67, 76, 83, 0.05);
   }
 }
@@ -67,7 +76,7 @@
   flex-direction: row;
   align-items: center;
   padding: 0px;
-  gap: 4px;
+  gap: 6px;
 }
 
 .avatar {
@@ -91,4 +100,4 @@
 .arrow {
   width: 20px;
   height: 20px;
-} 
+}

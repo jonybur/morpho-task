@@ -7,24 +7,25 @@
 
 .dropdownContainer {
   position: absolute;
-  top: 40px;
+  top: 46px;
   left: 0;
   width: 100%;
   z-index: 1;
   gap: 40px;
 
   &.errorSpacing {
-    top: 75px;
+    top: 70px;
+    font-weight: 500;
   }
 }
 
 .errorText {
   position: absolute;
-  top: -30px;
+  top: -27px;
   left: 0;
   font-family: v.$font-family-inter;
   font-size: 13px;
   width: 100%;
   text-align: right;
   color: v.$color-error-text;
-} 
+}
