@@ -11,6 +11,45 @@ export type Vault = {
   owner: string;
 };
 
+export const MOCK_VAULTS: Vault[] = [
+  {
+    id: '1',
+    name: 'Vault Name One',
+    token: 'Steakhouse USDC',
+    company: 'Steakhouse Financial',
+    totalSupply: '52250000',
+    instantNetApy: '10.22%',
+    owner: '0x12300000000000000000000000000000000abcdef',
+  },
+  {
+    id: '2',
+    name: 'Vault Name Two',
+    token: 'Steakhouse USDC',
+    company: 'Steakhouse Financial',
+    totalSupply: '52250000',
+    instantNetApy: '10.22%',
+    owner: '0x12300000000000000000000000000000000abcdef',
+  },
+  {
+    id: '3',
+    name: 'Vault Name Three',
+    token: 'Steakhouse USDC',
+    company: 'Steakhouse Financial',
+    totalSupply: '52250000',
+    instantNetApy: '10.22%',
+    owner: '0x12300000000000000000000000000000000abcdef',
+  },
+  {
+    id: '4',
+    name: 'Vault Name Four',
+    token: 'Steakhouse USDC',
+    company: 'Steakhouse Financial',
+    totalSupply: '52250000',
+    instantNetApy: '10.22%',
+    owner: '0x12300000000000000000000000000000000abcdef',
+  },
+];
+
 export const searchVaults = async (
   searchTerm: string,
   signal?: AbortSignal
@@ -51,46 +90,7 @@ export const searchVaults = async (
 export const getVault = async (vaultId: string): Promise<Vault> => {
   await new Promise((resolve) => setTimeout(resolve, 300));
 
-  const mockVaults = [
-    {
-      id: '1',
-      name: 'Vault Name One',
-      token: 'Steakhouse USDC',
-      company: 'Steakhouse Financial',
-      totalSupply: '52250000',
-      instantNetApy: '10.22%',
-      owner: '0x12300000000000000000000000000000000abcdef',
-    },
-    {
-      id: '2',
-      name: 'Vault Name Two',
-      token: 'Steakhouse USDC',
-      company: 'Steakhouse Financial',
-      totalSupply: '52250000',
-      instantNetApy: '10.22%',
-      owner: '0x12300000000000000000000000000000000abcdef',
-    },
-    {
-      id: '3',
-      name: 'Vault Name Three',
-      token: 'Steakhouse USDC',
-      company: 'Steakhouse Financial',
-      totalSupply: '52250000',
-      instantNetApy: '10.22%',
-      owner: '0x12300000000000000000000000000000000abcdef',
-    },
-    {
-      id: '4',
-      name: 'Vault Name Four',
-      token: 'Steakhouse USDC',
-      company: 'Steakhouse Financial',
-      totalSupply: '52250000',
-      instantNetApy: '10.22%',
-      owner: '0x12300000000000000000000000000000000abcdef',
-    },
-  ];
-
-  const vault = mockVaults.find((v) => v.id === vaultId);
+  const vault = MOCK_VAULTS.find((v) => v.id === vaultId);
 
   if (!vault) {
     throw new Error('Vault not found');

@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import alertIcon from './assets/alert_icon.svg';
 import arrowIcon from './assets/arrow_icon.svg';
 import borrowIcon from './assets/borrow_icon.svg';
@@ -38,7 +39,7 @@ const iconMap: Record<IconName, string> = {
 
 export const Icon: React.FC<IconProps> = ({ name, width = 24, height = 24, className }) => {
   return (
-    <img
+    <Image
       src={iconMap[name]}
       alt={`${name} icon`}
       width={width}

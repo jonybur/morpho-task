@@ -13,19 +13,18 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: {
-    children: <div>Content inside the box</div>,
-  },
-};
-
-export const WithMultipleChildren: Story = {
+export const Example: Story = {
   args: {
     children: (
       <>
-        <h2>Welcome</h2>
-        <p>This is a sample content inside the box</p>
-        <button>Click me</button>
+        <div
+          style={{
+            margin: '50px',
+            color: 'rgba(67, 76, 83, 0.7)',
+          }}
+        >
+          <h6>Example Box</h6>
+        </div>
       </>
     ),
   },

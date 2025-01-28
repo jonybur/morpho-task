@@ -1,3 +1,5 @@
+'use client';
+
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { debounce } from '../../utils/debounce';
 import { Dropdown, DropdownItem } from '../Dropdown';
@@ -41,6 +43,13 @@ export const Select = ({
   const debouncedSearchWithDelay = useMemo(() => debounce(debouncedSearch, 300), [debouncedSearch]);
 
   useEffect(() => {
+    if (value.length === 0) {
+      setResults([]);
+      setHasSearched(false);
+      setIsSuccess(false);
+      return;
+    }
+
     let abortController: AbortController | null = null;
 
     setIsLoading(true);

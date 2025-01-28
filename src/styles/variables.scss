@@ -18,7 +18,7 @@ $color-border-light: rgba(67, 76, 83, 0.15);
 $color-background-light: #fafcff;
 
 // Typography
-$font-family-inter: 'Inter', sans-serif;
+$font-family-inter: var(--font-inter);
 $font-family-fk:
   'FK Grotesk',
   -apple-system,

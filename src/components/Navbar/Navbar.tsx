@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Icon } from '../Icon';
 import styles from './Navbar.module.scss';
 
@@ -11,7 +11,7 @@ export const Navbar: React.FC<NavbarProps> = ({ className }) => {
   return (
     <nav className={`${styles.navbar} ${className || ''}`}>
       <div className={styles.content}>
-        <Link to="/" className={styles.leftSection}>
+        <Link href="/" className={styles.leftSection}>
           <Icon name="morpho" className={styles.morphoIcon} />
           <span className={styles.title}>Morpho Test</span>
         </Link>
