@@ -45,21 +45,33 @@ export function VaultContent({ vault, error }: { vault?: VaultType | null; error
   const [loading, setLoading] = useState(!vault);
 
   useEffect(() => {
+    let mounted = true;
     if (!vaultId || vaultData) return;
 
     async function fetchVault() {
       try {
         const data = await getVault(vaultId);
-        setVaultData(data);
+        if (mounted) {
+          setVaultData(data);
+        }
       } catch {
-        setVaultData(null);
+        if (mounted) {
+          setVaultData(null);
+        }
       } finally {
-        setLoading(false);
+        if (mounted) {
+          setLoading(false);
+        }
       }
     }
 
     fetchVault();
-  }, [vaultId, vaultData]);
+    return () => {
+      mounted = false;
+      setVaultData(null);
+      setLoading(true);
+    };
+  }, [vaultId]);
 
   if (error) {
     return <VaultError />;
