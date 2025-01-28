@@ -1,19 +1,7 @@
 {
   "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
-    },
-    {
-      "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "distDir": "storybook-static",
-        "command": "npm run build-storybook"
-      }
-    }
-  ],
+  "buildCommand": "npm run build && npm run build-storybook",
+  "outputDirectory": ".next",
   "routes": [
     {
       "handle": "filesystem"
