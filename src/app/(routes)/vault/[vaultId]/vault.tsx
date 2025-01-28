@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams } from 'next/navigation';
 import Image from 'next/image';
 import { getVault, Vault as VaultType } from '../../../../api/vaults';
 import steakhouseLogo from '../../../../assets/images/steakhouse.svg';
@@ -41,7 +41,8 @@ const VaultError = () => {
 };
 
 export function VaultContent({ vault, error }: { vault?: VaultType | null; error?: boolean }) {
-  const { vaultId = '' } = useParams<{ vaultId: string }>();
+  const params = useParams();
+  const vaultId = params.vaultId as string;
   const [vaultData, setVaultData] = useState<VaultType | null | undefined>(vault);
   const [loading, setLoading] = useState(!vault);
 
