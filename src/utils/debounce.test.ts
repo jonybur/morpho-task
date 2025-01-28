@@ -55,7 +55,7 @@ describe('debounce', () => {
     let resolvePromise2: (value: string) => void;
     let callCount = 0;
 
-    mockFn.mockImplementation(async (arg: string, signal: AbortSignal) => {
+    mockFn.mockImplementation(async (_: string, signal: AbortSignal) => {
       callCount++;
       return new Promise((resolve, reject) => {
         if (callCount === 1) {
