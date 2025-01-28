@@ -1,20 +1,21 @@
 {
   "version": 2,
-  "framework": "nextjs",
   "buildCommand": "npm run build && npm run build-storybook",
-  "outputDirectory": ".next",
-  "public": true,
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "regions": ["iad1"],
-  "rewrites": [
+  "installCommand": "npm install",
+  "builds": [
     {
-      "source": "/storybook",
-      "destination": "/storybook-static/index.html"
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/storybook/(.*)",
+      "dest": "/storybook-static/$1"
     },
     {
-      "source": "/storybook/:path*",
-      "destination": "/storybook-static/:path*"
+      "src": "/(.*)",
+      "dest": "/$1"
     }
   ]
 }
