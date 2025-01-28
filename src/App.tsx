@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Navbar } from './components';
-import { NotFoundPage, SearchPage, VaultPage } from './pages/routes';
+import { SearchPage } from './app/(routes)/search/Search';
+import { VaultContent } from './app/(routes)/vault/[vaultId]/vault';
 
 function App() {
   return (
@@ -9,8 +10,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<SearchPage />} />
-        <Route path="/vault/:vaultId" element={<VaultPage />} />
-        <Route path="*" element={<NotFoundPage />} />
+        <Route path="/vault/:vaultId" element={<VaultContent vault={null} />} />
       </Routes>
     </BrowserRouter>
   );

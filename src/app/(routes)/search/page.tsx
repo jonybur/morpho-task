@@ -1,6 +1,6 @@
 'use client'
 
-import { SearchPage } from '../../../pages/Search/Search'
+import { SearchPage } from './Search'
 
 export default function SearchRoute() {
   return <SearchPage />

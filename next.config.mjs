@@ -1,18 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // Outputs a Single-Page Application (SPA)
-  distDir: './dist', // Changes the build output directory to `./dist/`
+  distDir: './dist',
+  trailingSlash: true,
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/,
-      use: [{
-        loader: '@svgr/webpack',
-        options: {
-          typescript: true,
-          namedExport: 'ReactComponent',
-          exportType: 'named'
-        }
-      }]
+      type: 'asset',
+      generator: {
+        filename: 'static/media/[hash][ext]'
+      }
     });
     return config;
   }

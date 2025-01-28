@@ -1,12 +1,14 @@
-import { useNavigate } from 'react-router-dom';
-import { Button, Icon } from '../../components';
-import styles from './NotFound.module.scss';
+'use client'
 
-export const NotFoundPage = () => {
-  const navigate = useNavigate();
+import { useRouter } from 'next/navigation';
+import { Button, Icon } from '../components';
+import styles from './not-found.module.scss';
+
+export default function NotFound() {
+  const router = useRouter();
 
   const handleTryAgain = () => {
-    navigate('/');
+    router.push('/');
   };
 
   return (
@@ -21,4 +23,4 @@ export const NotFoundPage = () => {
       <Button className={styles.button} text="Try again" onClick={handleTryAgain} size="small" />
     </div>
   );
-};
+} 

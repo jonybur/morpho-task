@@ -1,12 +1,14 @@
+'use client'
+
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { searchVaults } from '../../api/vaults';
-import { Box, Select } from '../../components';
-import { DropdownItem } from '../../components/Dropdown';
+import { useRouter } from 'next/navigation';
+import { searchVaults } from '../../../api/vaults';
+import { Box, Select } from '../../../components';
+import { DropdownItem } from '../../../components/Dropdown';
 import styles from './Search.module.scss';
 
 export const SearchPage = () => {
-  const navigate = useNavigate();
+  const router = useRouter();
   const [searchTerm, setSearchTerm] = useState('');
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -31,7 +33,7 @@ export const SearchPage = () => {
   };
 
   const handleSelect = (item: DropdownItem) => {
-    navigate(`/vault/${item.id}`);
+    router.push(`/vault/${item.id}`);
   };
 
   return (
@@ -50,4 +52,4 @@ export const SearchPage = () => {
       </div>
     </Box>
   );
-};
+}; 
