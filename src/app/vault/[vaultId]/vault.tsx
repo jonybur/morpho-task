@@ -42,7 +42,7 @@ export function VaultContent({ vault, error }: { vault?: VaultType | null; error
       setVaultData(null);
       setLoading(true);
     };
-  }, [vaultId]);
+  }, [vaultId, vaultData]);
 
   if (error) {
     return <VaultError />;
