@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { SearchContent } from './SearchContent';
+import { SearchContent } from '.';
 
 export const metadata: Metadata = {
   title: 'Search Vaults',
