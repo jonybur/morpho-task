@@ -3,25 +3,22 @@
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/static-build",
-      "config": {
-        "buildCommand": "npm run build && npm run build-storybook",
-        "outputDirectory": ".next"
-      }
+      "use": "@vercel/next"
+    },
+    {
+      "src": "storybook-static/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/storybook/(.*)",
+      "headers": { "cache-control": "public, max-age=3600" },
       "dest": "/storybook-static/$1"
     },
     {
       "src": "/storybook",
       "dest": "/storybook-static/index.html"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
     }
   ]
 }
