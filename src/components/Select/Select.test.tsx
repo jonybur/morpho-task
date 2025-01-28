@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { DropdownItem } from '../Dropdown';
 import { Select } from './Select';
@@ -25,12 +25,17 @@ describe('Select', () => {
   });
 
   it('handles input change', async () => {
+    const user = userEvent.setup();
+
     render(
       <Select value="" onChange={mockOnChange} onSearch={mockOnSearch} placeholder="Search items" />
     );
 
     const input = screen.getByRole('textbox');
-    await userEvent.type(input, 't');
+
+    await act(async () => {
+      await user.type(input, 't');
+    });
 
     expect(mockOnChange).toHaveBeenCalledWith('t');
   });
