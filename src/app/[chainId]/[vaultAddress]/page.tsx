@@ -6,12 +6,12 @@ import { VaultContent } from './vault';
 export async function generateMetadata({
   params,
 }: {
-  params: { vaultId: string };
+  params: { chainId: string; vaultAddress: string };
 }): Promise<Metadata> {
   try {
-    const vault = await getVault(params.vaultId);
-    const title = en.vault.metadata.title(vault.token);
-    const description = en.vault.metadata.description(vault.token, vault.company);
+    const vault = await getVault(parseInt(params.chainId, 10), params.vaultAddress);
+    const title = vault.name;
+    const description = vault.metadata.curators.map((c) => c.name).join(', ');
 
     return {
       title,
@@ -29,9 +29,13 @@ export async function generateMetadata({
   }
 }
 
-export default async function VaultPage({ params }: { params: { vaultId: string } }) {
+export default async function VaultPage({
+  params,
+}: {
+  params: { chainId: string; vaultAddress: string };
+}) {
   try {
-    const vault = await getVault(params.vaultId);
+    const vault = await getVault(parseInt(params.chainId, 10), params.vaultAddress);
     return <VaultContent vault={vault} />;
   } catch {
     return <VaultContent error={true} />;

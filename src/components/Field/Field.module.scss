@@ -1,3 +1,5 @@
+@use '../../styles/variables.scss' as v;
+
 .container {
   display: flex;
   flex-direction: column;
@@ -40,4 +42,10 @@
   display: flex;
   align-items: flex-end;
   color: rgba(67, 76, 83, 0.95);
+  text-decoration: none;
+
+  &:hover {
+    color: rgba(67, 76, 83, 0.95);
+    text-decoration: none;
+  }
 }

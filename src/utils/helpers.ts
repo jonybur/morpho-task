@@ -1,7 +1,3 @@
-export const isValidEthereumAddress = (address: string): boolean => {
-  return /^0x[a-fA-F0-9]{40}$/.test(address);
-};
-
 export const formatUSD = (value: string) => {
   const num = parseFloat(value);
   if (num >= 1e6) {

@@ -1,19 +1,4 @@
-import { formatAddress, formatAPY, formatUSD, isValidEthereumAddress } from './helpers';
-
-describe('isValidEthereumAddress', () => {
-  it('should return true for valid Ethereum addresses', () => {
-    expect(isValidEthereumAddress('0x1234567890123456789012345678901234567890')).toBe(true);
-    expect(isValidEthereumAddress('0xabcdef0123456789ABCDEF0123456789abcdef01')).toBe(true);
-  });
-
-  it('should return false for invalid Ethereum addresses', () => {
-    expect(isValidEthereumAddress('invalid')).toBe(false);
-    expect(isValidEthereumAddress('0x123')).toBe(false);
-    expect(isValidEthereumAddress('0x123456789012345678901234567890123456789')).toBe(false); // Too short
-    expect(isValidEthereumAddress('0x12345678901234567890123456789012345678901')).toBe(false); // Too long
-    expect(isValidEthereumAddress('1x1234567890123456789012345678901234567890')).toBe(false); // Wrong prefix
-  });
-});
+import { formatAddress, formatAPY, formatUSD } from './helpers';
 
 describe('formatUSD', () => {
   it('should format numbers less than 1M', () => {

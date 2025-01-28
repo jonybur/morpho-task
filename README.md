@@ -1,12 +1,50 @@
 # Morpho Task
 
-This project implements a modern web application based on a provided Figma design. The application is built with React and TypeScript, featuring a comprehensive component library.
+This project implements a modern web application based on a provided Figma design. The application is built with React and TypeScript, featuring a comprehensive component library and vault exploration functionality.
 
 ## Live Demo
 
 The application is deployed and accessible at: https://morpho-task.vercel.app/
 
-## Getting Started
+## Features
+
+### Vault Search
+
+- Search vaults by address or name
+- Real-time validation of Ethereum addresses using viem
+- Debounced search with 300ms delay
+- Only whitelisted vaults are displayed
+- Results include vault name, image, and chain information
+
+### Vault Details
+
+- Server-side rendered vault information for optimal performance
+- Displays:
+  - Vault image and name
+  - Curator information
+  - Total supply in USD (formatted with M suffix for millions)
+  - Current APY
+  - Vault owner address with blockchain explorer link
+- Blockchain explorer integration:
+  - Ethereum (Chain ID: 1) - Links to Etherscan
+  - Base (Chain ID: 8453) - Links to Basescan
+- Client-side data refresh functionality
+
+## Technical Details
+
+### API Integration
+
+The application integrates with Morpho's GraphQL API at `https://blue-api.morpho.org/graphql` using Apollo Client.
+
+## Architecture
+
+- Next.js app with server and client components
+- Server-side rendering for vault details
+- Client-side hydration for interactive features
+- Static rendering for search page
+- Responsive design with preserved styling
+
+## Development
 
 ### Installation
 
@@ -71,12 +109,3 @@ While implementing the Figma design, several inconsistencies were addressed:
 ### Typography Note
 
 The Grotesk font is currently implemented using a trial version. As a result, certain characters (specifically the "$" symbol) may not display in the correct font type.
-
-## Development
-
-This project uses modern web development tools and practices:
-
-- React with TypeScript for type-safe development
-- Component-based architecture
-- Storybook for component documentation and testing
-- Automated deployment workflows
