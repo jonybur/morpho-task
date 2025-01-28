@@ -1,10 +1,20 @@
 {
-  "buildCommand": "npm run build && npm run build-storybook",
-  "outputDirectory": ".next",
   "builds": [
     {
       "src": "package.json",
-      "use": "@vercel/next"
+      "use": "@vercel/next",
+      "config": {
+        "buildCommand": "npm run build",
+        "outputDirectory": ".next"
+      }
+    },
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "buildCommand": "npm run build-storybook",
+        "outputDirectory": "storybook-static"
+      }
     }
   ],
   "rewrites": [
