@@ -7,6 +7,13 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
+  decorators: [
+    (Story) => (
+      <div style={{ width: '500px', position: 'relative' }}>
+        <Story />
+      </div>
+    ),
+  ],
 } satisfies Meta<typeof Dropdown>;
 
 export default meta;

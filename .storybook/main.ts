@@ -1,3 +1,4 @@
+import path from 'path';
 import type { StorybookConfig } from '@storybook/nextjs';
 
 const config: StorybookConfig = {
@@ -15,13 +16,23 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
+  staticDirs: ['../src/assets'],
   webpackFinal: async (config) => {
     if (config.resolve) {
       config.resolve.alias = {
         ...config.resolve.alias,
-        '@': '/src',
+        '@': path.resolve(__dirname, '../src'),
       };
     }
+
+    // Add rule for font files
+    if (config.module?.rules) {
+      config.module.rules.push({
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        type: 'asset/resource',
+      });
+    }
+
     return config;
   },
 };
