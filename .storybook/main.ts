@@ -1,39 +1,28 @@
-import type { StorybookConfig } from "@storybook/react-vite";
+import type { StorybookConfig } from '@storybook/nextjs';
 
 const config: StorybookConfig = {
-  stories: ["../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-onboarding',
+    '@storybook/addon-interactions',
   ],
   framework: {
-    name: "@storybook/react-vite",
+    name: '@storybook/nextjs',
     options: {},
   },
   docs: {
-    autodocs: "tag",
+    autodocs: 'tag',
   },
-  viteFinal: async (config) => {
+  webpackFinal: async (config) => {
     if (config.resolve) {
       config.resolve.alias = {
         ...config.resolve.alias,
         '@': '/src',
       };
     }
-    return {
-      ...config,
-      assetsInclude: ['**/*.svg'],
-      optimizeDeps: {
-        ...config.optimizeDeps,
-        exclude: [
-          '@storybook/addon-interactions/preview',
-          '@storybook/addon-interactions',
-          '@storybook/addon-essentials',
-          '@storybook/addon-links'
-        ]
-      }
-    };
+    return config;
   },
 };
 
