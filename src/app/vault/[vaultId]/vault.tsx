@@ -2,43 +2,12 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
-import Image from 'next/image';
 import { getVault, Vault as VaultType } from '../../../api/vaults';
-import steakhouseLogo from '../../../assets/images/steakhouse.svg';
-import { Box, Button, Field, Icon } from '../../../components';
+import { Box, Button, Field } from '../../../components';
 import { formatAddress, formatAPY, formatUSD } from '../../../utils/helpers';
+import { VaultHeader } from './components/VaultHeader';
+import { VaultError } from './components/VaultError';
 import styles from './vault.module.scss';
-
-const VaultHeader = ({ token, company }: { token: string; company: string }) => {
-  return (
-    <div className={styles.header}>
-      <div className={styles.avatar}>
-        <Image src={steakhouseLogo} alt="Steakhouse logo" width={40} height={40} />
-      </div>
-      <div className={styles.info}>
-        <div className={styles.title}>{token}</div>
-        <div className={styles.subtitle}>{company}</div>
-      </div>
-    </div>
-  );
-};
-
-const VaultError = () => {
-  return (
-    <Box className={styles.vaultErrorBox} rounded>
-      <div className={styles.vaultErrorContainer}>
-        <div className={styles.vaultErrorContentWrapper}>
-          <div className={styles.vaultErrorTitleWrapper}>
-            <Icon name="info" />
-            <span className={styles.vaultErrorTitle}>Oops!</span>
-          </div>
-          <span className={styles.vaultErrorDescription}>Something went wrong, please try again.</span>
-        </div>
-        <Button text="Try again" size="small" onClick={()=>{}} />
-      </div>
-    </Box>
-  );
-};
 
 export function VaultContent({ vault, error }: { vault?: VaultType | null; error?: boolean }) {
   const params = useParams();

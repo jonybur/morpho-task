@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect } from 'react';
 import { Box, Button } from '@/components';
 import styles from './Error.module.scss';
 
@@ -11,11 +10,6 @@ export function Error({
   error: Error & { digest?: string };
   reset: () => void;
 }) {
-  useEffect(() => {
-    // Optionally log the error to an error reporting service
-    console.error(error);
-  }, [error]);
-
   return (
     <Box className={styles.errorBox} rounded>
       <div className={styles.errorContainer}>
