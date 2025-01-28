@@ -1,3 +1,5 @@
+'use client'
+
 import { Box, Button, Icon } from '../../../../components';
 import styles from '../vault.module.scss';
 

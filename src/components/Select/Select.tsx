@@ -1,3 +1,5 @@
+'use client'
+
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { debounce } from '../../utils/debounce';
 import { Dropdown, DropdownItem } from '../Dropdown';
