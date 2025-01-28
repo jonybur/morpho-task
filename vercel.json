@@ -1,15 +1,17 @@
 {
   "version": 2,
-  "buildCommand": "npm run build && npm run build-storybook",
-  "installCommand": "npm install",
   "builds": [
     {
       "src": "package.json",
       "use": "@vercel/next"
     },
     {
-      "src": "storybook-static/**",
-      "use": "@vercel/static"
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "buildCommand": "npm run build-storybook",
+        "outputDirectory": "storybook-static"
+      }
     }
   ],
   "routes": [
