@@ -9,9 +9,8 @@
       "src": "package.json",
       "use": "@vercel/static-build",
       "config": {
-        "zeroConfig": false,
-        "buildCommand": "npm run build-storybook",
-        "outputDirectory": "storybook-static"
+        "distDir": "storybook-static",
+        "command": "npm run build-storybook"
       }
     }
   ],
