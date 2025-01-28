@@ -2,10 +2,12 @@
 
 import { useRouter } from 'next/navigation';
 import { Button, Icon } from '../components';
+import { useTranslation } from '../utils/useTranslation';
 import styles from './not-found.module.scss';
 
 export default function NotFound() {
   const router = useRouter();
+  const { t } = useTranslation();
 
   const handleTryAgain = () => {
     router.push('/');
@@ -16,11 +18,16 @@ export default function NotFound() {
       <div className={styles.contentWrapper}>
         <div className={styles.titleWrapper}>
           <Icon name="info" width={20} height={20} />
-          <div className={styles.title}>Not found</div>
+          <div className={styles.title}>{t.notFound.title}</div>
         </div>
-        <div className={styles.description}>We could not find the page you were looking for.</div>
+        <div className={styles.description}>{t.notFound.description}</div>
       </div>
-      <Button className={styles.button} text="Try again" onClick={handleTryAgain} size="small" />
+      <Button
+        className={styles.button}
+        text={t.common.tryAgain}
+        onClick={handleTryAgain}
+        size="small"
+      />
     </div>
   );
 }

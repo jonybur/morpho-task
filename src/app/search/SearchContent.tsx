@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Box, Select } from '@/components';
+import { useTranslation } from '@/utils/useTranslation';
 import { useRouter } from 'next/navigation';
 import { DropdownItem } from '@/components/Dropdown';
 import { searchVaults } from '@/api/vaults';
@@ -9,6 +10,7 @@ import styles from './page.module.scss';
 
 export function SearchContent() {
   const router = useRouter();
+  const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const [error, setError] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -39,9 +41,9 @@ export function SearchContent() {
   return (
     <Box className={styles.searchContainer}>
       <div className={styles.searchForm}>
-        <h6>Vault Address or Name</h6>
+        <h6>{t.search.title}</h6>
         <Select
-          placeholder="Enter Vault Address or Name..."
+          placeholder={t.search.placeholder}
           value={searchTerm}
           onChange={setSearchTerm}
           onSearch={handleSearch}

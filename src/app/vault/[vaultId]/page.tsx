@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { getVault } from '../../../api/vaults';
+import { en } from '../../../locales/en';
 import { VaultContent } from './vault';
 
 export async function generateMetadata({
@@ -9,18 +10,21 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   try {
     const vault = await getVault(params.vaultId);
+    const title = en.vault.metadata.title(vault.token);
+    const description = en.vault.metadata.description(vault.token, vault.company);
+
     return {
-      title: `${vault.token} Vault`,
-      description: `Explore ${vault.token} vault by ${vault.company}`,
+      title,
+      description,
       openGraph: {
-        title: `${vault.token} Vault`,
-        description: `Explore ${vault.token} vault by ${vault.company}`,
+        title,
+        description,
       },
     };
   } catch {
     return {
-      title: 'Vault Not Found',
-      description: 'The requested vault could not be found',
+      title: en.vault.metadata.notFound.title,
+      description: en.vault.metadata.notFound.description,
     };
   }
 }
