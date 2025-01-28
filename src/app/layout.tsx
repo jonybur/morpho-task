@@ -1,6 +1,15 @@
 import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
 import { Navbar } from '../components/Navbar'
 import '../index.css'
+
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['400', '500'],
+  variable: '--font-inter',
+  adjustFontFallback: true
+})
 
 export const metadata: Metadata = {
   title: 'Morpho Task',
@@ -13,17 +22,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
-      </head>
-      <body>
-        <div id="root">
-          <Navbar />
-          {children}
-        </div>
+    <html lang="en" className={inter.variable}>
+      <body className={inter.className}>
+        <Navbar />
+        {children}
       </body>
     </html>
   )

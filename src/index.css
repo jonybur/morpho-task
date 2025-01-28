@@ -13,7 +13,6 @@
 }
 
 :root {
-  font-family: Inter;
   line-height: 1.5;
   font-weight: 400;
 
@@ -41,7 +40,6 @@ body {
 }
 
 h6 {
-  font-family: Inter;
   font-size: 12px;
   font-weight: 500;
   line-height: 16px;

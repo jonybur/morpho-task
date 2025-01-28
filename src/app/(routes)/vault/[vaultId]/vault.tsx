@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Image from 'next/image';
 import { getVault, Vault as VaultType } from '../../../../api/vaults';
 import steakhouseLogo from '../../../../assets/images/steakhouse.svg';
 import { Box, Button, Field, Icon } from '../../../../components';
@@ -12,7 +13,7 @@ const VaultHeader = ({ token, company }: { token: string; company: string }) => 
   return (
     <div className={styles.header}>
       <div className={styles.avatar}>
-        <img src={steakhouseLogo} alt="Steakhouse logo" />
+        <Image src={steakhouseLogo} alt="Steakhouse logo" width={40} height={40} />
       </div>
       <div className={styles.info}>
         <div className={styles.title}>{token}</div>
@@ -94,7 +95,7 @@ export function VaultContent({ vault, error }: { vault?: VaultType | null; error
         <Field title="Instant Net APY" value={formatAPY(vaultData.instantNetApy)} />
         <Field title="Vault Owner" value={formatAddress(vaultData.owner)} />
       </div>
-      <Button icon={'borrow'} />
+      <Button icon={'borrow'} className={styles.borrowButton} />
     </Box>
   );
 }

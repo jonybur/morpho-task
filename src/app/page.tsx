@@ -1,5 +1,5 @@
-import { ClientOnly } from './client'
+import { SearchPage } from './(routes)/search/Search'
 
-export default function Page() {
-  return <ClientOnly />
+export default function Home() {
+  return <SearchPage />
 } 
