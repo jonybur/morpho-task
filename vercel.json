@@ -1,0 +1,22 @@
+{
+  "buildCommand": "npm run build && npm run build-storybook",
+  "outputDirectory": ".next",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "ui.my-app.vercel.app"
+        }
+      ],
+      "destination": "/storybook-static/:path*"
+    }
+  ]
+}
