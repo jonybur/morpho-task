@@ -1,4 +1,4 @@
-import { getVault } from '../../../../api/vaults';
+import { getVault } from '../../../api/vaults';
 import { VaultContent } from './vault';
 
 export default async function VaultPage({ params }: { params: { vaultId: string } }) {

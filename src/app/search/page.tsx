@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { searchVaults } from '../../../api/vaults';
-import { Box, Select } from '../../../components';
-import { DropdownItem } from '../../../components/Dropdown';
-import styles from './Search.module.scss';
+import { searchVaults } from '@/api/vaults';
+import { Box, Select } from '@/components';
+import { DropdownItem } from '@/components/Dropdown';
+import styles from './page.module.scss';
 
-export const SearchPage = () => {
+export default function SearchPage() {
   const router = useRouter();
   const [searchTerm, setSearchTerm] = useState('');
   const [error, setError] = useState(false);
@@ -52,4 +52,4 @@ export const SearchPage = () => {
       </div>
     </Box>
   );
-}; 
+} 

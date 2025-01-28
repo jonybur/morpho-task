@@ -3,10 +3,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Image from 'next/image';
-import { getVault, Vault as VaultType } from '../../../../api/vaults';
-import steakhouseLogo from '../../../../assets/images/steakhouse.svg';
-import { Box, Button, Field, Icon } from '../../../../components';
-import { formatAddress, formatAPY, formatUSD } from '../../../../utils/helpers';
+import { getVault, Vault as VaultType } from '../../../api/vaults';
+import steakhouseLogo from '../../../assets/images/steakhouse.svg';
+import { Box, Button, Field, Icon } from '../../../components';
+import { formatAddress, formatAPY, formatUSD } from '../../../utils/helpers';
 import styles from './vault.module.scss';
 
 const VaultHeader = ({ token, company }: { token: string; company: string }) => {
