@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { Box, Button, Icon } from '../../../../components';
 import styles from '../vault.module.scss';
@@ -12,10 +12,12 @@ export const VaultError = () => {
             <Icon name="info" />
             <span className={styles.vaultErrorTitle}>Oops!</span>
           </div>
-          <span className={styles.vaultErrorDescription}>Something went wrong, please try again.</span>
+          <span className={styles.vaultErrorDescription}>
+            Something went wrong, please try again.
+          </span>
         </div>
-        <Button text="Try again" size="small" onClick={()=>{}} />
+        <Button text="Try again" size="small" onClick={() => {}} />
       </div>
     </Box>
   );
-}; 
+};

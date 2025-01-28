@@ -1,5 +1,5 @@
-import { Box } from '@/components'
-import styles from './vault.module.scss'
+import { Box } from '@/components';
+import styles from './vault.module.scss';
 
 export default function VaultLoading() {
   return (
@@ -24,5 +24,5 @@ export default function VaultLoading() {
       </div>
       <div className="w-10 h-10 rounded-full bg-gray-200 animate-pulse" />
     </Box>
-  )
-} 
+  );
+}

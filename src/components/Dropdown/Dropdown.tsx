@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { FC, useCallback, useEffect, useRef, useState } from 'react';
 import { Icon } from '../Icon';

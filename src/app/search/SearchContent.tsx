@@ -1,40 +1,40 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
-import { searchVaults } from '@/api/vaults'
-import { Box, Select } from '@/components'
-import { DropdownItem } from '@/components/Dropdown'
-import styles from './page.module.scss'
+import { useState } from 'react';
+import { Box, Select } from '@/components';
+import { useRouter } from 'next/navigation';
+import { DropdownItem } from '@/components/Dropdown';
+import { searchVaults } from '@/api/vaults';
+import styles from './page.module.scss';
 
 export function SearchContent() {
-  const router = useRouter()
-  const [searchTerm, setSearchTerm] = useState('')
-  const [error, setError] = useState(false)
-  const [errorMessage, setErrorMessage] = useState('')
+  const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState('');
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSearch = async (term: string, signal?: AbortSignal) => {
     try {
-      const results = await searchVaults(term, signal)
+      const results = await searchVaults(term, signal);
       if (!signal?.aborted) {
-        setError(false)
-        setErrorMessage('')
-        return results
+        setError(false);
+        setErrorMessage('');
+        return results;
       }
-      return []
+      return [];
     } catch (err) {
-      if (signal?.aborted) return []
+      if (signal?.aborted) return [];
       if (err instanceof Error) {
-        setErrorMessage(err.message)
+        setErrorMessage(err.message);
       }
-      setError(true)
-      return []
+      setError(true);
+      return [];
     }
-  }
+  };
 
   const handleSelect = (item: DropdownItem) => {
-    router.push(`/vault/${item.id}`)
-  }
+    router.push(`/vault/${item.id}`);
+  };
 
   return (
     <Box className={styles.searchContainer}>
@@ -51,5 +51,5 @@ export function SearchContent() {
         />
       </div>
     </Box>
-  )
-} 
+  );
+}

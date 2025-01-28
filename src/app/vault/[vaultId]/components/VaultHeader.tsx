@@ -19,4 +19,4 @@ export const VaultHeader = ({ token, company }: VaultHeaderProps) => {
       </div>
     </div>
   );
-}; 
+};

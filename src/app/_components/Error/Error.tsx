@@ -3,13 +3,7 @@
 import { Box, Button } from '@/components';
 import styles from './Error.module.scss';
 
-export function Error({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
+export function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
   return (
     <Box className={styles.errorBox} rounded>
       <div className={styles.errorContainer}>
@@ -23,4 +17,4 @@ export function Error({
       </div>
     </Box>
   );
-} 
+}

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useRouter } from 'next/navigation';
 import { Button, Icon } from '../components';
@@ -23,4 +23,4 @@ export default function NotFound() {
       <Button className={styles.button} text="Try again" onClick={handleTryAgain} size="small" />
     </div>
   );
-} 
+}

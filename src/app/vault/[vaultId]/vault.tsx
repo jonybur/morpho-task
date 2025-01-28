@@ -5,8 +5,8 @@ import { useParams } from 'next/navigation';
 import { getVault, Vault as VaultType } from '../../../api/vaults';
 import { Box, Button, Field } from '../../../components';
 import { formatAddress, formatAPY, formatUSD } from '../../../utils/helpers';
-import { VaultHeader } from './components/VaultHeader';
 import { VaultError } from './components/VaultError';
+import { VaultHeader } from './components/VaultHeader';
 import styles from './vault.module.scss';
 
 export function VaultContent({ vault, error }: { vault?: VaultType | null; error?: boolean }) {

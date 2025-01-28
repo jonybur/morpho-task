@@ -1,5 +1,5 @@
-import { default as SearchPage } from './search/page'
+import { default as SearchPage } from './search/page';
 
 export default function Home() {
-  return <SearchPage />
-} 
+  return <SearchPage />;
+}
