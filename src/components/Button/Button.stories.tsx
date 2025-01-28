@@ -7,6 +7,7 @@ const meta: Meta<typeof Button> = {
   parameters: {
     layout: 'centered',
   },
+  tags: ['autodocs'],
   argTypes: {
     text: {
       control: 'text',
@@ -30,7 +31,6 @@ const meta: Meta<typeof Button> = {
       description: 'Progress state (loading)',
     },
   },
-  tags: ['autodocs'],
 };
 
 export default meta;

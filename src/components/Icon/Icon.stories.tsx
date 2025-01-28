@@ -2,7 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Icon } from './Icon';
 import styles from './Icon.stories.module.scss';
 
-const ICON_NAMES = ['alert', 'borrow'] as const;
+const ICON_NAMES = [
+  'alert',
+  'arrow',
+  'borrow',
+  'check',
+  'info',
+  'loading',
+  'morpho',
+  'upRightArrow',
+] as const;
 
 const meta: Meta<typeof Icon> = {
   title: 'Components/Icon',
@@ -59,9 +68,45 @@ export const Alert: Story = {
   },
 };
 
+export const Arrow: Story = {
+  args: {
+    name: 'arrow',
+  },
+};
+
 export const Borrow: Story = {
   args: {
     name: 'borrow',
+  },
+};
+
+export const Check: Story = {
+  args: {
+    name: 'check',
+  },
+};
+
+export const Info: Story = {
+  args: {
+    name: 'info',
+  },
+};
+
+export const Loading: Story = {
+  args: {
+    name: 'loading',
+  },
+};
+
+export const Morpho: Story = {
+  args: {
+    name: 'morpho',
+  },
+};
+
+export const UpRightArrow: Story = {
+  args: {
+    name: 'upRightArrow',
   },
 };
 
