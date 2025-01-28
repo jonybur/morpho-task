@@ -29,15 +29,6 @@ const mockSearch = async (searchTerm: string): Promise<DropdownItem[]> => {
   return [];
 };
 
-const mockSearchWithDelay = async (): Promise<DropdownItem[]> => {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
-  return [
-    { id: '1', name: 'Result One' },
-    { id: '2', name: 'Result Two' },
-    { id: '3', name: 'Result Three' },
-  ];
-};
-
 const SelectWithHooks = (args: Partial<SelectProps>) => {
   const [value, setValue] = useState('');
 
@@ -66,19 +57,6 @@ export const WithCustomErrorMessage: Story = {
     placeholder: 'Enter search term...',
     isError: true,
     errorMessage: 'Please check your input and try again',
-  },
-};
-
-export const Loading: Story = {
-  render: (args) => {
-    const SelectWithLoadingState = (props: Partial<SelectProps>) => {
-      const [value, setValue] = useState('loading');
-      return <Select {...props} value={value} onChange={setValue} onSearch={mockSearchWithDelay} />;
-    };
-    return <SelectWithLoadingState {...args} />;
-  },
-  args: {
-    placeholder: 'Loading state example...',
   },
 };
 
