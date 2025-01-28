@@ -72,7 +72,7 @@ describe('debounce', () => {
       });
     });
 
-    const promise1 = debouncedFn('test1');
+    debouncedFn('test1');
     jest.advanceTimersByTime(1000); // Trigger first call
 
     const promise2 = debouncedFn('test2');
