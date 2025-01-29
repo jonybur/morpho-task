@@ -17,7 +17,7 @@ export const VaultError = () => {
           </div>
           <span className={styles.vaultErrorDescription}>{t.vault.error.description}</span>
         </div>
-        <Button text={t.common.tryAgain} size="small" onClick={() => {}} />
+        <Button text={t.common.tryAgain} size="small" onClick={() => window.location.reload()} />
       </div>
     </Box>
   );

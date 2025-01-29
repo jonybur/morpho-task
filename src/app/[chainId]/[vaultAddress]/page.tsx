@@ -1,7 +1,8 @@
 import { Metadata } from 'next';
 import { getVault } from '../../../api/vaults';
 import { en } from '../../../locales/en';
-import { VaultContent } from './vault';
+import { VaultError } from './components/VaultError';
+import { VaultContainer } from './vault';
 
 export async function generateMetadata({
   params,
@@ -36,8 +37,8 @@ export default async function VaultPage({
 }) {
   try {
     const vault = await getVault(parseInt(params.chainId, 10), params.vaultAddress);
-    return <VaultContent vault={vault} />;
+    return <VaultContainer vault={vault} />;
   } catch {
-    return <VaultContent error={true} />;
+    return <VaultError />;
   }
 }
